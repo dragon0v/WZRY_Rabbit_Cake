@@ -4,5 +4,5 @@
 @REM git commit -m "first commit"
 @REM git branch -M main
 git add .
-git commit -m "update .gitignore"
+git commit -m "update readme"
 git push -u origin main
