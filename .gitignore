@@ -136,4 +136,6 @@ projects/
 
 
 commands.txt
-wzry_img/*
+push.bat
+wzry_img/*.jpg
+wzry_img/*.png
