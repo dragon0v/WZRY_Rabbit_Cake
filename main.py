@@ -41,6 +41,10 @@ def main(sleep=5, target=900):
         time.sleep(sleep)
 
 if __name__ == '__main__':
-    ADB_connect(5555)
+    PORT = 5555  # 模拟器的ADB调试端口
+    SLEEP = 5  # 获取周期
+    TARGET = 900  # 目标小兔糕最低数量
+    
+    ADB_connect(PORT)
 
-    main()
+    main(SLEEP, TARGET)
