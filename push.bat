@@ -4,5 +4,5 @@
 @REM git commit -m "first commit"
 @REM git branch -M main
 git add .
-git commit -m "update readme"
+git commit -m "update main"
 git push -u origin main

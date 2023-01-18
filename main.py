@@ -1,6 +1,11 @@
+# -*- coding: utf-8 -*-
+# @Time    : 2023/1/18
+# @Author  : github.com/dragon0v
+
 # ADB 参考
 # https://blog.csdn.net/u011254376/article/details/123155244
 # https://blog.csdn.net/qq_39189509/article/details/89321052
+
 
 import  os
 import subprocess
@@ -12,11 +17,9 @@ from wzrytest import detect
 def ADB_connect(port):
     if str(ADB("devices")).count('device')==0:
         # 避免重复连接
-        msg = ADB("connect 127.0.0.1:%d"%port)
+        ADB("connect 127.0.0.1:%d"%port)
         print("连接成功")
-        return msg
-    print("已连接设备，无需重复连接")
-    return "已连接设备，无需重复连接"
+    print("已连接设备")
     
 def ADB(cmd):
     result = subprocess.Popen('adb\\adb.exe '+cmd,shell=True,stdout=subprocess.PIPE)
@@ -31,8 +34,6 @@ def main(sleep=5, target=900):
         ADB("pull /sdcard/wzrytemp.png wzry_img/wzrytemp.png")  # 将截图保存到电脑
 
         wzry_img = r"wzry_img\wzrytemp.png"
-        # target = 900
-        # TODO 对结果去重
         res = detect(wzry_img)
         if res and max(res) >= target:
             os.startfile(wzry_img)
