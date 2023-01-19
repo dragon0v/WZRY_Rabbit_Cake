@@ -10,6 +10,7 @@
 import  os
 import subprocess
 import time
+import argparse
 
 from model import OcrHandle
 from wzrytest import detect
@@ -41,10 +42,18 @@ def main(sleep=5, target=900):
         time.sleep(sleep)
 
 if __name__ == '__main__':
-    PORT = 5555  # 模拟器的ADB调试端口
-    SLEEP = 5  # 获取周期
-    TARGET = 900  # 目标小兔糕最低数量
+
+    parser = argparse.ArgumentParser()
+    parser.description='port:模拟器的ADB调试端口, sleep:获取周期, target:目标小兔糕最低数量'
+    parser.add_argument("-p", "--port", help="模拟器的ADB调试端口，默认5555", dest="PORT", type=int, default="5555")
+    parser.add_argument("-s", "--sleep", help="获取周期，默认5秒", dest="SLEEP", type=int, default="5")
+    parser.add_argument("-t", "--target", help="目标小兔糕最低数量，默认900", dest="TARGET", type=int, default="900")
+    args = parser.parse_args()
     
+    PORT = args.PORT  # 模拟器的ADB调试端口
+    SLEEP = args.SLEEP  # 获取周期
+    TARGET = args.TARGET  # 目标小兔糕最低数量
+
     ADB_connect(PORT)
 
     main(SLEEP, TARGET)
