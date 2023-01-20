@@ -9,5 +9,5 @@
 @REM git config --global gui.encoding utf-8
 
 git add .
-git commit -m "update readme"
+git commit -m "crop before OCR"
 git push -u origin main

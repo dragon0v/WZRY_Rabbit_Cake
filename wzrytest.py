@@ -10,7 +10,7 @@ def detect(input_img='test2.jpg'):
     # 返回获取到的小兔糕数量列表
     handler = OcrHandle()
     img = cv2.imread(input_img, cv2.IMREAD_COLOR)
-    print(img)
+    img = img[0:1080, 0:1200]  # 裁剪坐标为[y0:y1, x0:x1]
     t1 = time()
     result = handler.text_predict(img, 480)
     print('spend time %.3f'%(time() - t1))
