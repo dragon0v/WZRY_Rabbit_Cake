@@ -16,7 +16,7 @@ from model import OcrHandle
 from wzrytest import detect
 
 def ADB_connect(port):
-    if str(ADB("devices")).count('device')==2:
+    if str(ADB("devices")).count('device')!=2:
         # 避免重复连接
         ADB("connect 127.0.0.1:%d"%port)
         print("连接成功")
